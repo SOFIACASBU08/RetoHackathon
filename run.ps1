@@ -1,0 +1,2 @@
+cd Backend
+dotnet run
