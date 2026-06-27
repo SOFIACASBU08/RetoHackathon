@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Login.css';
 
-export default function Login() {
+export default function Login({ onLoginSuccess }) {
   // Navigation State
   const [isLogin, setIsLogin] = useState(true);
 
@@ -71,6 +71,9 @@ export default function Login() {
     }
     console.log('Login:', { cedula, password: loginPassword, captchaChecked: loginCaptchaChecked });
     alert('Sesión iniciada correctamente (demo).');
+    if (onLoginSuccess) {
+      onLoginSuccess();
+    }
   };
 
   const handleRegisterSubmit = (e) => {
@@ -108,6 +111,9 @@ export default function Login() {
         termsChecked,
       });
       alert('Cuenta creada con éxito (demo).');
+      if (onLoginSuccess) {
+        onLoginSuccess();
+      }
     }
   };
 
